@@ -1,0 +1,15 @@
+body {
+  background-color: #e3f7e3;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 1.75em;
+}

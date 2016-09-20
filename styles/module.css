@@ -22,6 +22,7 @@
 
 .nav-list li {
   list-style: none;
+  margin: 2%;
 }
 
 @media only screen and (min-width: 640px) {
@@ -38,7 +39,7 @@
 
   .main-nav li {
     display: inline-block;
-    margin-right: 0;
+    margin: 0;
     width: 20%;
     padding: 2%;
     text-align: center;

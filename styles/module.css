@@ -25,6 +25,21 @@
   margin: 2%;
 }
 
+.template {
+  display: none;
+}
+
+.credits {
+  text-align: center;
+  font-size: 1em;
+}
+
+.article-body {
+  margin: 0 20% 2%;
+  text-align: left;
+  font-size: 1em;
+}
+
 @media only screen and (min-width: 640px) {
 
   .icon-menu {

@@ -1,5 +1,6 @@
 body {
   background-color: #e3f7e3;
+  color: #151515;
 }
 
 h1, h2 {
@@ -12,4 +13,9 @@ h1 {
 
 h2 {
   font-size: 1.75em;
+}
+
+a:link,
+a:visited {
+  color: #fa9757;
 }

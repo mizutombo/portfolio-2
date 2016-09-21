@@ -1,8 +1,9 @@
 body {
   background-color: #e3f7e3;
+  color: #151515;
 }
 
-h1, h2 {
+h1, h2, h3 {
   text-align: center;
 }
 
@@ -12,4 +13,23 @@ h1 {
 
 h2 {
   font-size: 1.75em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+a:link,
+a:visited {
+  color: #fa9757;
+}
+
+article {
+  margin: 2%;
+  border: solid 1px #151515;
+  border-radius: 15px;
+}
+
+article h1 {
+  font-size: 1.5em;
 }

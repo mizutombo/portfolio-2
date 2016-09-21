@@ -1,0 +1,23 @@
+var myProjects = [
+  {
+    title:       'Website For Sourdough Baking',
+    url:         'http://www.kneadandproof.com',
+    siteName:    'kneadandproof.com',
+    repoUrl:     'https://github.com/nthugon/kneadAndProof',
+    description: '<p>This is a website I built in order to share my knowledge of sourdough baking. The site gives background information about tradtional baking, as well as instructions on how to make and maintain a starter. The site has multiple pages and incorporates responsive web design.</p>'
+  },
+  {
+    title:       'Recipe Converter Web App',
+    url:         'https://nthugon.github.io/recipeMaker/',
+    siteName:    'https://nthugon.github.io/recipeMaker/',
+    repoUrl:     'https://github.com/nthugon/recipeMaker',
+    description: "<p>This is a web app that takes a recipe in weight units and converts it to baker's percentage. Baker's percentage is used to keep a recipe that can then be scaled to any volume later. Baker's are able to easily see the fundamental differences in recipes when they are presented in this format as you are presented with ratios between ingredients. This web app uses localStorage to hold onto your converted recipes even after a screen refresh.</p>"
+  },
+  {
+    title:       'The Next Great Project',
+    url:         '#',
+    repoUrl:     '#',
+    sitName:     'My Next Great Project',
+    description: "<p>This is the spot where my next great project will be showcased. It's coming. Trust Me.</p>"
+  }
+];

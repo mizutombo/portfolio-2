@@ -14,7 +14,7 @@ Project.prototype.toHtml = function() {
   $newProject.find('a.siteName').attr('href', this.url);
   $newProject.find('a.siteName').text(this.siteName);
   $newProject.find('a.gitHub').attr('href', this.repoUrl);
-  $newProject.find('.article-body').html(this.description);
+  $newProject.find('.project-body').html(this.description);
   $newProject.removeClass('template');
   return $newProject;
 };
@@ -25,5 +25,5 @@ myProjects.forEach(function(ele) {
 });
 
 projects.forEach(function(a) {
-  $('#articles').append(a.toHtml());
+  $('#projects').append(a.toHtml());
 });

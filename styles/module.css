@@ -40,6 +40,23 @@
   font-size: 1em;
 }
 
+.iLove {
+  padding: 0;
+  text-align: center;
+}
+
+.iLove li {
+  list-style: none;
+}
+
+#about {
+  margin-bottom: 4%;
+}
+
+#about p{
+  text-align: center;
+}
+
 @media only screen and (min-width: 640px) {
 
   .icon-menu {

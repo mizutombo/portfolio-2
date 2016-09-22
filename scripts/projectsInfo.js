@@ -14,10 +14,10 @@ var myProjects = [
     description: "<p>This is a web app that takes a recipe in weight units and converts it to baker's percentage. Baker's percentage is used to keep a recipe that can then be scaled to any volume later. Baker's are able to easily see the fundamental differences in recipes when they are presented in this format as you are presented with ratios between ingredients. This web app uses localStorage to hold onto your converted recipes even after a screen refresh.</p>"//eslint-disable-line
   },
   {
-    title:       'The Next Great Project',
-    url:         '#',
+    title:       'My Next Great Project',
+    url:         'http://www.google.com',
+    siteName:    'nathanhugonsprojectname.com',
     repoUrl:     '#',
-    sitName:     'My Next Great Project',
     description: "<p>This is the spot where my next great project will be showcased. It's coming. Trust Me.</p>"//eslint-disable-line
   }
 ];

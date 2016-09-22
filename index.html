@@ -9,6 +9,18 @@
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/module.css">
+    <script id="project-template" type="text/x-handlebars-template">
+      <article>
+         <header>
+            <h1>{{title}}</h1>
+            <div class="credits">
+              <p><a href="{{url}}">{{siteName}}</a></p>
+              <p><a href="{{repoUrl}}">GitHub Repo</a></p>
+            </div>
+         </header>
+        <div class="project-body"><p>{{{description}}}</p></div>
+      </article>
+    </script>
   </head>
   <body>
     <header>
@@ -28,16 +40,6 @@
     <main>
       <section id="projects" class="tab-content">
         <h3>Projects</h3>
-        <article class="template">
-           <header>
-              <h1>Title</h1>
-              <div class="credits">
-                <p><a class="siteName" href="">Site Name</a></p>
-                <p><a class="gitHub" href="">GitHub Repo</a></p>
-              </div>
-           </header>
-          <div class="project-body"><p>This is a sample description of a project. This text will be replaced with actual content taken from the object.</p></div>
-        </article>
       </section>
       <section id="about" class="tab-content">
           <h3>Welcome to my Portfolio Page</h3>
@@ -56,6 +58,7 @@
       </section>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
     <script type="text/javascript" src="scripts/projectsInfo.js"></script>
     <script type="text/javascript" src="scripts/projects.js"></script>
     <script type="text/javascript" src="scripts/projectView.js"></script>

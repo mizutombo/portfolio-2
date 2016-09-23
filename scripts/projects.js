@@ -16,10 +16,10 @@ Project.prototype.toHtml = function() {
 };
 
 
-myProjects.forEach(function(ele) {
-  projects.push(new Project(ele));
+myProjects.forEach(function(projectData) {
+  projects.push(new Project(projectData));
 });
 
-projects.forEach(function(a) {
-  $('#projects').append(a.toHtml());
+projects.forEach(function(p) {
+  $('#projects').append(p.toHtml());
 });

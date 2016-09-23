@@ -1,6 +1,6 @@
 body {
   font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
-  background-color: #e3f7e3;
+  background-color: #b1e2b4;
   color: #151515;
 }
 
@@ -29,10 +29,15 @@ a:visited {
   color: #fa9757;
 }
 
+img {
+  max-width: 100%;
+}
+
 article {
   margin: 2%;
   border: solid 1px #151515;
   border-radius: 15px;
+  background-color: #e3f7e3;
 }
 
 article h1 {

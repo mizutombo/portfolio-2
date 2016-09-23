@@ -1,5 +1,6 @@
 body {
-  background-color: #e3f7e3;
+  font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+  background-color: #b1e2b4;
   color: #151515;
 }
 
@@ -15,8 +16,12 @@ h2 {
   font-size: 1.75em;
 }
 
-h3, h4 {
+h3 {
   font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1.25em;
 }
 
 a:link,
@@ -24,10 +29,15 @@ a:visited {
   color: #fa9757;
 }
 
+img {
+  max-width: 100%;
+}
+
 article {
   margin: 2%;
   border: solid 1px #151515;
   border-radius: 15px;
+  background-color: #e3f7e3;
 }
 
 article h1 {

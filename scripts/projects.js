@@ -9,14 +9,10 @@ function Project (opts) {
 }
 
 Project.prototype.toHtml = function() {
-  var $newProject = $('article.template').clone();
-  $newProject.find('h1').text(this.title);
-  $newProject.find('a.siteName').attr('href', this.url);
-  $newProject.find('a.siteName').text(this.siteName);
-  $newProject.find('a.gitHub').attr('href', this.repoUrl);
-  $newProject.find('.project-body').html(this.description);
-  $newProject.removeClass('template');
-  return $newProject;
+  var source = $('#project-template').html();
+  var template = Handlebars.compile(source);
+  var html = template(this);
+  return html;
 };
 
 

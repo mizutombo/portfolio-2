@@ -57,7 +57,23 @@
   text-align: center;
 }
 
+#profile-picture {
+  border-radius: 50%;
+}
+
+.self-photo {
+  padding: 0 33%;
+  margin: 0 auto;
+}
+
 @media only screen and (min-width: 640px) {
+
+  .self-photo {
+    padding: 0 40%;
+    margin: 0 auto;
+  }
+
+
 
   .icon-menu {
     display: none;

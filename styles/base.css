@@ -24,9 +24,13 @@ h4 {
   font-size: 1.25em;
 }
 
+a {
+  font-size: 1.25em;
+}
+
 a:link,
 a:visited {
-  color: #fa9757;
+  color: #f97825;
 }
 
 img {

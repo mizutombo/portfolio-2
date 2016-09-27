@@ -1,5 +1,3 @@
-var projects = [];
-
 function Project (opts) {
   this.title = opts.title;
   this.url = opts.url;
@@ -8,6 +6,8 @@ function Project (opts) {
   this.description = opts.description;
 }
 
+Project.all = [];
+
 Project.prototype.toHtml = function() {
   var source = $('#project-template').html();
   var template = Handlebars.compile(source);
@@ -15,11 +15,19 @@ Project.prototype.toHtml = function() {
   return html;
 };
 
-
 myProjects.forEach(function(projectData) {
-  projects.push(new Project(projectData));
+  Project.all.push(new Project(projectData));
 });
 
 projects.forEach(function(p) {
   $('#projects').append(p.toHtml());
 });
+
+
+Article.loadAll = function(dataWePassIn) {
+  dataWePassIn.sort(function(a,b) {
+    return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
+  }).forEach(function(ele) {
+    Article.all.push(new Article(ele));
+  });
+};

@@ -15,19 +15,64 @@ Project.prototype.toHtml = function() {
   return html;
 };
 
-myProjects.forEach(function(projectData) {
-  Project.all.push(new Project(projectData));
-});
-
-projects.forEach(function(p) {
-  $('#projects').append(p.toHtml());
-});
-
-
-Article.loadAll = function(dataWePassIn) {
-  dataWePassIn.sort(function(a,b) {
-    return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
-  }).forEach(function(ele) {
-    Article.all.push(new Article(ele));
+Project.loadAll = function(dataWePassIn) {
+  dataWePassIn.forEach(function(projectData) {
+    Project.all.push(new Project(projectData));
   });
+};
+
+Project.fetchAll = function() {
+  if (localStorage.projects) {
+    $.ajax({
+      url: '/data/projects.json',
+      type:'head',
+      complete: function(xhr) {
+        var eTag = xhr.getResponseHeader('ETag');
+        console.log(eTag + localStorage.getItem('eTag'));
+        if (eTag === localStorage.getItem('eTag')) {
+          var storedData = JSON.parse(localStorage.getItem('projects'));
+          Project.loadAll(storedData);
+          projectView.renderIndexPage();
+        } else {
+          $.ajax({
+            type: 'GET',
+            url: '/data/projects.json',
+            success: successHandler
+          });
+          $.ajax({
+            url: '/data/projects.json',
+            type:'head',
+            complete: function(xhr) {
+              var eTag = xhr.getResponseHeader('ETag');
+              localStorage.setItem('eTag', eTag);
+            }
+          });
+          function successHandler(data) {
+            localStorage.setItem('projects',JSON.stringify(data));
+            Project.loadAll(data);
+            projectView.renderIndexPage();
+          }
+        }
+      }
+    });
+  } else {
+    $.ajax({
+      type: 'GET',
+      url: '/data/projects.json',
+      success: successHandler
+    });
+    $.ajax({
+      url: '/data/projects.json',
+      type:'head',
+      complete: function(xhr) {
+        var eTag = xhr.getResponseHeader('ETag');
+        localStorage.setItem('eTag', eTag);
+      }
+    });
+    function successHandler(data) {
+      localStorage.setItem('projects',JSON.stringify(data));
+      Projects.loadAll(data);
+      projectView.renderIndexPage();
+    }
+  }
 };

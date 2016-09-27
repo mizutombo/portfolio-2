@@ -10,4 +10,11 @@ projectView.handleMainNav = function () {
   $('.main-nav .tab:first').click();
 };
 
-projectView.handleMainNav();
+projectView.renderIndexPage = function() {
+  Project.all.forEach(function(p) {
+    $('#projects').append(p.toHtml());
+    projectView.handleMainNav();
+  });
+};
+
+Project.fetchAll();

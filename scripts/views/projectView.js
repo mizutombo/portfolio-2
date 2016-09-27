@@ -13,8 +13,8 @@ projectView.handleMainNav = function () {
 projectView.renderIndexPage = function() {
   Project.all.forEach(function(p) {
     $('#projects').append(p.toHtml());
-    projectView.handleMainNav();
   });
+  projectView.handleMainNav();
 };
 
 Project.fetchAll();

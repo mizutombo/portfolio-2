@@ -71,7 +71,7 @@ Project.fetchAll = function() {
     });
     function successHandler(data) {
       localStorage.setItem('projects',JSON.stringify(data));
-      Projects.loadAll(data);
+      Project.loadAll(data);
       projectView.renderIndexPage();
     }
   }

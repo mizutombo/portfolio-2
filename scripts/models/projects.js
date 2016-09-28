@@ -7,6 +7,8 @@
     this.repoUrl = opts.repoUrl;
     this.description = opts.description;
   }
+  //array to store project urls
+  
   //array to store projects
   Project.all = [];
   //method to use Handlebars.js to fill template and return html

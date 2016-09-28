@@ -15,7 +15,7 @@
   },
   {
     "title":       "My Next Great Project",
-    "url":         "http://www.google.com",
+    "url":         null,
     "siteName":    "nathanhugonsprojectname.com",
     "repoUrl":     "#",
     "description": "<p>This is the spot where my next great project will be showcased. It's coming. Trust Me.</p>"

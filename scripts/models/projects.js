@@ -25,8 +25,8 @@ Project.fetchAll = function() {
 
   function successHandler(data, status, xhr) {
     localStorage.setItem('projects',JSON.stringify(data));
-    var eTag = xhr.getResponseHeader('ETag');
-    localStorage.setItem('eTag', eTag);
+    var ETag = xhr.getResponseHeader('ETag');
+    localStorage.setItem('ETag', ETag);
     Project.loadAll(data);
     projectView.renderIndexPage();
   }
@@ -36,10 +36,10 @@ Project.fetchAll = function() {
       url: '/data/projects.json',
       type:'head',
       complete: function(xhr) {
-        var eTag = xhr.getResponseHeader('ETag');
-        console.log(eTag + localStorage.getItem('eTag'));
+        var ETag = xhr.getResponseHeader('ETag');
+        console.log(ETag + localStorage.getItem('ETag'));
 
-        if (eTag === localStorage.getItem('eTag')) {
+        if (ETag === localStorage.getItem('ETag')) {
           var storedData = JSON.parse(localStorage.getItem('projects'));
           Project.loadAll(storedData);
           projectView.renderIndexPage();

@@ -11,8 +11,19 @@
     $('.main-nav .tab:first').click();
   };
   //method to create node
-  projectView.createUrlsNode = function(arr) {
-
+  // projectView.createUrlsNode = function(arr) {
+  //   arr.forEach(function(url))
+  // };
+  function createUrlsNode (arr) {
+    var $p = $('<p></p>');
+    $p.html('Project URLS: ' + arr[0] + ' ' + arr[1]);
+    return $p;
+  };
+  //method to create node
+  function createCodeTotalNode (total) {
+    var $p = $('<p></p>');
+    $p.html('Total lines of JavaScript Code in projects: ' + total);
+    return $p;
   };
 
 
@@ -21,8 +32,8 @@
     Project.all.forEach(function(p) {
       $('#projects').append(p.toHtml());
     });
-    $('footer p').append('Project URLs: ' + Project.getProjectUrls());
-    $('footer p').append('</br>Total lines of JavaScript Code in projects:' + Project.getCodeTotal());
+    $('footer').append(createUrlsNode(Project.getProjectUrls()));
+    $('footer').append(createCodeTotalNode(Project.getCodeTotal()));
     projectView.handleMainNav();
   };
   //runs the whole process

@@ -6,11 +6,27 @@
     this.siteName = opts.siteName;
     this.repoUrl = opts.repoUrl;
     this.description = opts.description;
+    this.linesOfCode = opts.linesOfCode;
   }
-  //array to store project urls
-  
   //array to store projects
   Project.all = [];
+  //method to get array of working Project.url's
+  Project.getProjectUrls = function() {
+    return Project.all.map(function(obj) {
+      return obj.url;
+    }).filter(function(obj) {
+      obj !== null;
+      return obj;
+    });
+  };
+  //method to get total lines of JS code from projects
+  Project.getCodeTotal = function() {
+    return Project.all.map(function(obj) {
+      return obj.linesOfCode;
+    }).reduce(function(acc, curr) {
+      return acc + curr;
+    }, 0);
+  };
   //method to use Handlebars.js to fill template and return html
   Project.prototype.toHtml = function() {
     var source = $('#project-template').html();

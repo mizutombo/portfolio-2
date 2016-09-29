@@ -9,23 +9,13 @@ projectView.handleMainNav = function () {
   });
   $('.main-nav .tab:first').click();
 };
-//
-projectView.loadFooterToHtml = function(arr) {
-  var $destination = $('footer ');
-  var source = $('#footerUrl-template').html();
-  var template = Handlebars.compile(source);
-  arr.forEach(function(e){
-    var html = template(e);
-    $destination;
-  });
-  var html = template(this);
-  return html;
-};
 //method to cycle through all the objects in the array, fill out the template with their values, and append the new content to the page. Also, calls the method for enabling the tab selection
 projectView.renderIndexPage = function() {
   Project.all.forEach(function(p) {
     $('#projects').append(p.toHtml());
   });
+  $('footer p').append('Project URLs: ' + Project.getProjectUrls());
+  $('footer p').append('</br>Total lines of JavaScript Code in projects:' + Project.getCodeTotal());
   projectView.handleMainNav();
 };
 //runs the whole process

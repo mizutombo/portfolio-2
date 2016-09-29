@@ -15,8 +15,7 @@
     return Project.all.map(function(obj) {
       return obj.url;
     }).filter(function(obj) {
-      obj !== null;
-      return obj;
+      return !!obj;
     });
   };
   //method to get total lines of JS code from projects

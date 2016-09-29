@@ -10,6 +10,12 @@
     });
     $('.main-nav .tab:first').click();
   };
+  //method to create node
+  projectView.createUrlsNode = function(arr) {
+
+  };
+
+
   //method to cycle through all the objects in the array, fill out the template with their values, and append the new content to the page. Also, calls the method for enabling the tab selection
   projectView.renderIndexPage = function() {
     Project.all.forEach(function(p) {

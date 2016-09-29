@@ -40,13 +40,13 @@
     });
   };
   //method to retrieve data through ajax request or localStorage, convert that data to new objects in an array, and then apply the objects to Handlebars.js template and add it to the site
-  Project.fetchAll = function() {
+  Project.fetchAll = function(nextFunction) {
     function successHandler(data, status, xhr) {
       localStorage.setItem('projects',JSON.stringify(data));
       var ETag = xhr.getResponseHeader('ETag');
       localStorage.setItem('ETag', ETag);
       Project.loadAll(data);
-      projectView.renderIndexPage();
+      nextFunction();
     }
     if (localStorage.projects) {
       $.ajax({
@@ -58,7 +58,7 @@
           if (ETag === localStorage.getItem('ETag')) {
             var storedData = JSON.parse(localStorage.getItem('projects'));
             Project.loadAll(storedData);
-            projectView.renderIndexPage();
+            nextFunction();
           } else {
             $.ajax({
               type: 'GET',

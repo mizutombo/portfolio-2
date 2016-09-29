@@ -20,7 +20,7 @@
     projectView.handleMainNav();
   };
   //runs the whole process
-  Project.fetchAll();
+  Project.fetchAll(projectView.renderIndexPage);
   //export high level function methods
   module.projectView = projectView;
 })(window);

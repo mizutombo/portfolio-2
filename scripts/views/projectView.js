@@ -11,22 +11,24 @@
     $('.main-nav .tab:first').click();
   };
   //method to create node
-  // projectView.createUrlsNode = function(arr) {
-  //   arr.forEach(function(url))
-  // };
   function createUrlsNode (arr) {
     var $p = $('<p></p>');
-    $p.html('Project URLS: ' + arr[0] + ' ' + arr[1]);
+    $p.html('Project URLS:</br>');
+    arr.forEach(function(url) {
+      var $a = $('<a></a>');
+      $a.attr('href', url);
+      $a.html(url + '</br>');
+      console.log($a.html());
+      $p.append($a);
+    });
     return $p;
   };
   //method to create node
   function createCodeTotalNode (total) {
     var $p = $('<p></p>');
-    $p.html('Total lines of JavaScript Code in projects: ' + total);
+    $p.html('Total Lines of JavaScript Code in Projects: ' + total);
     return $p;
   };
-
-
   //method to cycle through all the objects in the array, fill out the template with their values, and append the new content to the page. Also, calls the method for enabling the tab selection
   projectView.renderIndexPage = function() {
     Project.all.forEach(function(p) {

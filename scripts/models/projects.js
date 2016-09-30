@@ -12,16 +12,16 @@
   Project.all = [];
   //method to get array of working Project.url's
   Project.getProjectUrls = function() {
-    return Project.all.map(function(obj) {
-      return obj.url;
-    }).filter(function(obj) {
-      return !!obj;
+    return Project.all.map(function(project) {
+      return project.url;
+    }).filter(function(url) {
+      return !!url;
     });
   };
   //method to get total lines of JS code from projects
   Project.getCodeTotal = function() {
-    return Project.all.map(function(obj) {
-      return obj.linesOfCode;
+    return Project.all.map(function(project) {
+      return project.linesOfCode;
     }).reduce(function(acc, curr) {
       return acc + curr;
     }, 0);
@@ -40,13 +40,14 @@
     });
   };
   //method to retrieve data through ajax request or localStorage, convert that data to new objects in an array, and then apply the objects to Handlebars.js template and add it to the site
-  Project.fetchAll = function() {
+  Project.fetchAll = function(nextFunction) {
+    //function to run when ajax request is successful.
     function successHandler(data, status, xhr) {
       localStorage.setItem('projects',JSON.stringify(data));
       var ETag = xhr.getResponseHeader('ETag');
       localStorage.setItem('ETag', ETag);
       Project.loadAll(data);
-      projectView.renderIndexPage();
+      nextFunction();
     }
     if (localStorage.projects) {
       $.ajax({
@@ -58,7 +59,7 @@
           if (ETag === localStorage.getItem('ETag')) {
             var storedData = JSON.parse(localStorage.getItem('projects'));
             Project.loadAll(storedData);
-            projectView.renderIndexPage();
+            nextFunction();
           } else {
             $.ajax({
               type: 'GET',
